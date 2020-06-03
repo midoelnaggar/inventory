@@ -3,7 +3,7 @@ const Item = require('../models/item.model');
 
 
 
-router.route('/be/').get((req, res) => {
+router.route('/').get((req, res) => {
   Item.aggregate([{
     $lookup: {
         from: 'recieve',
@@ -27,7 +27,7 @@ router.route('/be/').get((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/be/add').post((req, res) => {
+router.route('/add').post((req, res) => {
   const itemName = req.body.itemName;
   const itemQty = Number(req.body.itemQty);
   const itemVendor = req.body.itemVendor;
@@ -45,19 +45,19 @@ router.route('/be/add').post((req, res) => {
   .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/be/:id').get((req, res) => {
+router.route('/:id').get((req, res) => {
   Item.findById(req.params.id)
     .then(item => res.json(item))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/be/:id').delete((req, res) => {
+router.route('/:id').delete((req, res) => {
     Item.findByIdAndDelete(req.params.id)
     .then(() => res.json('Item deleted.'))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/be/update/:id').post((req, res) => {
+router.route('/update/:id').post((req, res) => {
   Item.findById(req.params.id)
     .then(item => {
          item.itemName = req.body.itemName;

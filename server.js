@@ -22,7 +22,7 @@ const itemsRouter = require('./routes/items');
 const receivesRouter = require('./routes/receives');
 const deliveriesRouter = require('./routes/deliveries');
 
-app.use('/be/items', itemsRouter);
+app.use('/items', itemsRouter);
 app.use('/receives', receivesRouter);
 app.use('/deliveries', deliveriesRouter);
 
