@@ -6,7 +6,7 @@
   "scripts": {
     "predeploy": "nodemon start",
     "deploy": "gh-pages -d ",
-    "heroku-postbild": "cd inventory_fe && npm install && npm run build",
+    "heroku-postbuild": "cd inventory_fe && npm install && npm run build",
     "client": "cd inventory_fe && npm start",
     "start": "concurrently \"nodemon server.js\" \"npm run client\"",
     "test": "echo \"Error: no test specified\" && exit 1"
